@@ -8,7 +8,7 @@ from agent.state import State
 from langchain_openai import ChatOpenAI
 
 # Initialize the LLM
-llm = ChatOpenAI(model="gpt-4")
+llm = ChatOpenAI(model="gpt-4o-mini")
 
 def summarizer_agent(state: State) -> Dict:
     """Summarize the legal case."""
