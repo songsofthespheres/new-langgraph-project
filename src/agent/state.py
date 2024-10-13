@@ -3,10 +3,13 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import List, TypedDict
+from typing_extensions import Annotated
+from langchain_core.messages import BaseMessage
 
 
 @dataclass
-class State:
+class State(TypedDict):
     """Defines the input state for the agent, representing a narrower interface to the outside world.
 
     This class is used to define the initial state and structure of incoming data.
@@ -14,4 +17,5 @@ class State:
     for more information.
     """
 
-    changeme: str = "example"
+    messages: Annotated[List[BaseMessage], "The conversation history"]
+    current_step: Annotated[str, "The current step in the legal decision process"]
